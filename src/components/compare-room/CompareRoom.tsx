@@ -1,9 +1,21 @@
+import ComingSoon from '../ui/ComingSoon';
+
 const CompareRoom = () => {
   return (
-    <div>
-      <h1>Compare Room</h1>
-      <p>Compare up to 3 builds side by side. Coming soon!</p>
-    </div>
+    <ComingSoon
+      title="Compare Room"
+      description="Compare up to 3 builds side-by-side with comprehensive analysis across all metrics."
+      icon="📊"
+      features={[
+        "Side-by-side build comparison (up to 3 builds)",
+        "Level progression curves from 1-20",
+        "DPR comparison across different ACs and scenarios",
+        "Pillar scorecard radar charts",
+        "Toggle window analysis (SS/GWM crossover points)",
+        "Snapshot diffing to see what changed",
+        "Export comparison reports and charts"
+      ]}
+    />
   );
 };
 
