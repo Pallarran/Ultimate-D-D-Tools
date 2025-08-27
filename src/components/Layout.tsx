@@ -16,8 +16,8 @@ const Layout = ({ children }: LayoutProps) => {
     { path: '/combat', label: 'Combat Lab', icon: '⚡' },
     { path: '/compare', label: 'Compare Room', icon: '📊' },
     { path: '/pillars', label: 'Pillar Scorecards', icon: '🎯' },
-    { path: '/party', label: 'Party & Day Planner', icon: '👥' },
     { path: '/leveling', label: 'Leveling Planner', icon: '📈' },
+    { path: '/party', label: 'Party & Day Planner', icon: '👥' },
     { path: '/optimizer', label: 'Optimize & Analyze', icon: '🔬' },
   ];
 
@@ -54,9 +54,11 @@ const Layout = ({ children }: LayoutProps) => {
       </main>
 
       <footer className="app-footer">
-        <p>
-          Ultimate D&D Tools - D&D 5e Character Optimization Lab
-        </p>
+        <div className="footer-content">
+          <p>
+            Ultimate D&D Tools - D&D 5e Character Optimization Lab
+          </p>
+        </div>
       </footer>
     </div>
   );
