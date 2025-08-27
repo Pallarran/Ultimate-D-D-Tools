@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { Scenario } from '../types';
+import type { Scenario } from '../types';
 
 interface ScenarioState {
   scenario: Scenario;

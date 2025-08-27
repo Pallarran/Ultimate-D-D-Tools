@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Build, AttackProfile, Rider } from '../../types';
+import type { Build, AttackProfile, Rider } from '../../types';
 
 interface AttackProfilesFormProps {
   build: Build;
@@ -274,7 +274,7 @@ const AttackProfilesForm = ({ build, onChange }: AttackProfilesFormProps) => {
         )}
       </div>
 
-      <style jsx>{`
+      <style>{`
         .profile-count {
           font-size: 0.875rem;
           color: var(--text-secondary);

@@ -1,4 +1,4 @@
-import { Build } from '../../types';
+import type { Build } from '../../types';
 
 interface AbilitiesFormProps {
   build: Build;
@@ -101,7 +101,7 @@ const AbilitiesForm = ({ build, onChange }: AbilitiesFormProps) => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .point-buy-indicator {
           font-size: 0.875rem;
           color: var(--text-secondary);

@@ -2,8 +2,8 @@
  * Combat simulation and calculation utilities
  */
 
-import { Build, Scenario, AttackProfile } from '../types';
-import { hitProbability, critProbability, oncePerTurnAllocation } from './probability';
+import type { Build, Scenario, AttackProfile } from '../types';
+import { hitProbability, critProbability } from './probability';
 import { expectedDamagePerHit, calculateSSGWM } from './damage';
 
 /**

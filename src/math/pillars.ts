@@ -2,7 +2,7 @@
  * Non-combat pillar scoring calculations
  */
 
-import { Build } from '../types';
+import type { Build } from '../types';
 
 export interface PillarScores {
   social: number;

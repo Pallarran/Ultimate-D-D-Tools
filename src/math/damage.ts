@@ -88,7 +88,7 @@ export function calculateSSGWM(
   baseDamageCrit: string,
   targetAC: number,
   advantage: 'normal' | 'advantage' | 'disadvantage' = 'normal',
-  featType: 'sharpshooter' | 'gwm' = 'sharpshooter'
+  _featType: 'sharpshooter' | 'gwm' = 'sharpshooter'
 ): {
   normal: { hitChance: number; dpr: number };
   withFeat: { hitChance: number; dpr: number };

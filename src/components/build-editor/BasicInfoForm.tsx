@@ -1,4 +1,4 @@
-import { Build } from '../../types';
+import type { Build } from '../../types';
 
 interface BasicInfoFormProps {
   build: Build;

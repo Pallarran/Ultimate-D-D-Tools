@@ -1,69 +1,117 @@
-# React + TypeScript + Vite
+# Ultimate D&D Tools 🎲
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**The definitive lab for D&D 5e character optimization**
 
-Currently, two official plugins are available:
+A comprehensive web application for modeling builds, simulating combat across realistic scenarios, comparing power curves levels 1–20, and evaluating non-combat pillars with transparent mathematical calculations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+### 🏗️ **Build Editor**
+- **Comprehensive Character Creation**: Classes, subclasses, abilities, feats, fighting styles
+- **Smart Validation**: Point-buy calculator, proficiency bonus automation, conflict detection
+- **Attack Profiles**: Weapon attacks, spell attacks, damage riders (Sneak Attack, Hex, etc.)
+- **Real-time Feedback**: Instant calculations and validation as you build
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ⚡ **Combat Analysis** (Coming Soon)
+- **3-Round DPR Calculations**: Realistic damage per round with policies
+- **DPR vs AC Charts**: Visualize Sharpshooter/GWM toggle windows
+- **Scenario Simulation**: Advantage, cover, buffs, terrain effects
+- **Time-to-Kill Analysis**: Expected rounds to defeat HP pools
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 📊 **Comparison Tools** (Coming Soon)
+- **Multi-Build Analysis**: Compare up to 3 builds side-by-side
+- **Level Progression Curves**: Power scaling from levels 1-20
+- **Pillar Scorecards**: Social, exploration, control, mobility, survivability
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🚀 Live Demo
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**[Try it now on GitHub Pages!](https://pallarran.github.io/Ultimate-D-D-Tools/)**
+
+## 💻 Development
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Local Development
+```bash
+# Clone the repository
+git clone https://github.com/Pallarran/Ultimate-D-D-Tools.git
+cd Ultimate-D-D-Tools
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Run tests
+npm test
+
+# Build for production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Testing
+- **21 comprehensive unit tests** covering D&D 5e mathematical calculations
+- Probability calculations (advantage, crits, Elven Accuracy)
+- Damage calculations (GWF rerolls, SS/GWM optimization)
+- Run tests with `npm test`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🏗️ Technical Stack
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Frontend**: React 18, TypeScript, Vite
+- **State Management**: Zustand with persistence
+- **Charts**: Recharts for data visualization  
+- **Styling**: CSS Variables with dark mode support
+- **Testing**: Vitest + Testing Library
+- **Deployment**: GitHub Actions → GitHub Pages
+
+## 📋 Development Roadmap
+
+### ✅ **Phase 1: Foundation (Complete)**
+- Project setup with TypeScript + React + Vite
+- Comprehensive math engine with full test coverage
+- Type-safe data models and interfaces
+
+### ✅ **Phase 2: MVP (Complete)**
+- Complete Build Editor with tabbed interface
+- Navigation and routing system
+- Responsive design with professional UI
+
+### 🔄 **Phase 3: Combat Analysis (In Progress)**
+- DPR calculations with scenario policies
+- Interactive charts and visualizations
+- Build comparison tools
+
+### 🎯 **Phase 4: Advanced Features (Planned)**
+- Pillar scorecards with radar charts
+- Auto-optimizer and sensitivity analysis
+- Party planning and adventuring day simulation
+
+## 🤝 Contributing
+
+This project follows semantic versioning and conventional commits. Feel free to:
+- Report bugs and request features via GitHub Issues
+- Submit pull requests for improvements
+- Share feedback and suggestions
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## 🎯 Design Philosophy
+
+**"Transparent math, no black boxes"**
+
+Every calculation includes:
+- Clear explanations of why decisions were made
+- Transparent mathematical formulas
+- Configurable assumptions and house rules
+- Audit trails for complex scenarios
+
+Built for optimizers, by optimizers, with a focus on mathematical accuracy and user understanding.
+
+---
+
+*🤖 Proudly built with [Claude Code](https://claude.ai/code)*

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { Build } from '../types';
+import type { Build } from '../types';
 
 interface BuildState {
   builds: Build[];

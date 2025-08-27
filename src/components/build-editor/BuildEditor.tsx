@@ -55,7 +55,7 @@ const BuildEditor = () => {
     setHasUnsavedChanges(false);
   };
 
-  const handleBuildChange = (updates: Partial<typeof currentBuild>) => {
+  const handleBuildChange = (updates: Partial<NonNullable<typeof currentBuild>>) => {
     updateCurrentBuild(updates);
     setHasUnsavedChanges(true);
   };

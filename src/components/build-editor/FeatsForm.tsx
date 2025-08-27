@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Build } from '../../types';
+import type { Build } from '../../types';
 
 interface FeatsFormProps {
   build: Build;
@@ -131,7 +131,7 @@ const FeatsForm = ({ build, onChange }: FeatsFormProps) => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .feat-count {
           font-size: 0.875rem;
           color: var(--text-secondary);
