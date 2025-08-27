@@ -145,6 +145,8 @@
   border-radius: var(--rounded-2xl);
   padding: 2.5rem;
   box-shadow: var(--shadow-md);
+  position: relative;
+  z-index: 20;
 }
 
 /* Form styles */

@@ -108,12 +108,18 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   font-size: var(--text-base);
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
 }
 
 /* Typography */
