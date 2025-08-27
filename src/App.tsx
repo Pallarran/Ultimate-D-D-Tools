@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Library from './components/library/Library';
 import BuildEditor from './components/build-editor/BuildEditor';
@@ -12,7 +12,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Layout>
         <Routes>
           <Route path="/" element={<Library />} />
@@ -26,7 +26,7 @@ function App() {
           <Route path="/optimizer" element={<Optimizer />} />
         </Routes>
       </Layout>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
