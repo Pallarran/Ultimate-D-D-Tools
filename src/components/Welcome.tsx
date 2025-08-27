@@ -114,8 +114,10 @@ const Welcome = () => {
 
       <style>{`
         .welcome-container {
-          min-height: calc(100vh - var(--header-height) - 120px);
-          padding: 0;
+          height: calc(100vh - var(--header-height));
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
         }
 
         .welcome-hero {
@@ -123,9 +125,10 @@ const Welcome = () => {
             var(--bg-primary) 0%, 
             var(--bg-secondary) 50%, 
             var(--bg-tertiary) 100%);
-          padding: 4rem 2rem;
+          padding: 2rem 2rem 1.5rem 2rem;
           text-align: center;
           border-bottom: 1px solid var(--border-light);
+          flex-shrink: 0;
         }
 
         .hero-content {
@@ -139,7 +142,7 @@ const Welcome = () => {
 
         .title-main {
           display: block;
-          font-size: var(--text-5xl);
+          font-size: var(--text-4xl);
           font-weight: 800;
           background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
           background-clip: text;
@@ -150,23 +153,23 @@ const Welcome = () => {
 
         .title-sub {
           display: block;
-          font-size: var(--text-lg);
+          font-size: var(--text-base);
           font-weight: 500;
           color: var(--text-secondary);
         }
 
         .hero-description {
-          font-size: var(--text-xl);
+          font-size: var(--text-lg);
           color: var(--text-secondary);
-          line-height: 1.6;
-          margin: 0 0 3rem 0;
+          line-height: 1.5;
+          margin: 0 0 1.5rem 0;
         }
 
         .hero-stats {
           display: flex;
           justify-content: center;
-          gap: 3rem;
-          margin-top: 3rem;
+          gap: 2rem;
+          margin-top: 1.5rem;
         }
 
         .stat {
@@ -175,10 +178,10 @@ const Welcome = () => {
 
         .stat-number {
           display: block;
-          font-size: var(--text-4xl);
+          font-size: var(--text-2xl);
           font-weight: 800;
           color: var(--accent-color);
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.25rem;
         }
 
         .stat-label {
@@ -188,33 +191,41 @@ const Welcome = () => {
         }
 
         .welcome-features {
-          padding: 4rem 2rem;
+          flex: 1;
+          padding: 1.5rem 2rem;
           max-width: 1200px;
           margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
         }
 
         .features-header {
           text-align: center;
-          margin-bottom: 3rem;
+          margin-bottom: 1.5rem;
+          flex-shrink: 0;
         }
 
         .features-header h2 {
-          font-size: var(--text-3xl);
+          font-size: var(--text-2xl);
           font-weight: 700;
           color: var(--text-primary);
-          margin: 0 0 1rem 0;
+          margin: 0 0 0.5rem 0;
         }
 
         .features-header p {
-          font-size: var(--text-lg);
+          font-size: var(--text-base);
           color: var(--text-secondary);
           margin: 0;
         }
 
         .features-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-          gap: 2rem;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 1rem;
+          flex: 1;
+          overflow-y: auto;
+          padding-right: 0.5rem;
         }
 
         .feature-card {
@@ -238,28 +249,28 @@ const Welcome = () => {
 
         .feature-link {
           display: block;
-          padding: 2rem;
+          padding: 1.25rem;
           text-decoration: none;
           color: inherit;
         }
 
         .feature-icon {
-          font-size: 3rem;
-          margin-bottom: 1rem;
+          font-size: 2rem;
+          margin-bottom: 0.75rem;
         }
 
         .feature-title {
-          font-size: var(--text-xl);
+          font-size: var(--text-lg);
           font-weight: 600;
           color: var(--text-primary);
-          margin: 0 0 1rem 0;
+          margin: 0 0 0.5rem 0;
         }
 
         .feature-description {
-          font-size: var(--text-base);
+          font-size: var(--text-sm);
           color: var(--text-secondary);
-          line-height: 1.5;
-          margin: 0 0 1.5rem 0;
+          line-height: 1.4;
+          margin: 0 0 1rem 0;
         }
 
         .feature-status {
@@ -288,34 +299,35 @@ const Welcome = () => {
 
         .welcome-cta {
           background: var(--bg-tertiary);
-          padding: 4rem 2rem;
+          padding: 1.5rem 2rem;
           text-align: center;
           border-top: 1px solid var(--border-light);
+          flex-shrink: 0;
         }
 
         .welcome-cta h2 {
-          font-size: var(--text-3xl);
+          font-size: var(--text-xl);
           font-weight: 700;
           color: var(--text-primary);
-          margin: 0 0 1rem 0;
+          margin: 0 0 0.5rem 0;
         }
 
         .welcome-cta p {
-          font-size: var(--text-lg);
+          font-size: var(--text-base);
           color: var(--text-secondary);
-          margin: 0 0 2rem 0;
+          margin: 0 0 1rem 0;
         }
 
         .cta-button {
           display: inline-flex;
           align-items: center;
-          gap: 0.75rem;
-          padding: 1rem 2rem;
+          gap: 0.5rem;
+          padding: 0.75rem 1.5rem;
           background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
           color: white;
           text-decoration: none;
           border-radius: var(--rounded-lg);
-          font-size: var(--text-lg);
+          font-size: var(--text-base);
           font-weight: 600;
           transition: var(--transition);
           box-shadow: var(--shadow-lg);
@@ -328,56 +340,59 @@ const Welcome = () => {
         }
 
         .button-icon {
-          font-size: 1.25rem;
+          font-size: 1rem;
         }
 
         @media (max-width: 768px) {
           .welcome-hero {
-            padding: 3rem 1rem;
+            padding: 1.5rem 1rem 1rem 1rem;
           }
 
           .title-main {
-            font-size: var(--text-4xl);
+            font-size: var(--text-3xl);
           }
 
           .hero-description {
-            font-size: var(--text-lg);
+            font-size: var(--text-base);
           }
 
           .hero-stats {
-            gap: 2rem;
+            gap: 1.5rem;
           }
 
           .welcome-features {
-            padding: 3rem 1rem;
+            padding: 1rem;
           }
 
           .features-grid {
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 0.75rem;
           }
 
           .welcome-cta {
-            padding: 3rem 1rem;
+            padding: 1rem;
           }
         }
 
         @media (max-width: 640px) {
           .hero-stats {
-            flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
           }
 
           .stat {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.5rem;
           }
 
           .stat-number {
-            font-size: var(--text-2xl);
+            font-size: var(--text-lg);
             margin-bottom: 0;
+          }
+
+          .stat-label {
+            font-size: var(--text-xs);
           }
         }
       `}</style>
