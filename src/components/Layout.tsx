@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
-import StickyBars from './ui/StickyBars';
 import './Layout.css';
 
 interface LayoutProps {
@@ -44,8 +43,6 @@ const Layout = ({ children }: LayoutProps) => {
           </nav>
         </div>
       </header>
-
-      <StickyBars />
 
       <main className="app-main">
         <div className="main-content">

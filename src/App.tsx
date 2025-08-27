@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import Welcome from './components/Welcome';
 import Library from './components/library/Library';
 import BuildEditor from './components/build-editor/BuildEditor';
 import CombatLab from './components/combat-lab/CombatLab';
@@ -15,9 +16,10 @@ function App() {
     <HashRouter>
       <Layout>
         <Routes>
-          <Route path="/" element={<Library />} />
+          <Route path="/" element={<Welcome />} />
           <Route path="/library" element={<Library />} />
-          <Route path="/build/:id?" element={<BuildEditor />} />
+          <Route path="/build" element={<BuildEditor />} />
+          <Route path="/build/:id" element={<BuildEditor />} />
           <Route path="/combat" element={<CombatLab />} />
           <Route path="/compare" element={<CompareRoom />} />
           <Route path="/pillars" element={<PillarScorecards />} />

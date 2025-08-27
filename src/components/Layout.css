@@ -136,7 +136,6 @@
   flex: 1;
   position: relative;
   z-index: 10;
-  margin-top: var(--sticky-bars-height);
 }
 
 .app-footer {
@@ -154,70 +153,6 @@
   font-size: var(--text-sm);
 }
 
-/* Sticky bars styles */
-.sticky-bars {
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-color);
-  position: sticky;
-  top: var(--header-height);
-  z-index: 40;
-  backdrop-filter: blur(8px);
-}
-
-.scenario-bar,
-.policy-bar {
-  padding: 1rem var(--container-padding);
-}
-
-.scenario-bar {
-  background: linear-gradient(90deg, var(--bg-scenario), transparent 50%);
-  border-bottom: 1px solid var(--border-light);
-}
-
-.policy-bar {
-  background: linear-gradient(90deg, var(--bg-policy), transparent 50%);
-}
-
-.bar-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.bar-section label {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--text-primary);
-  white-space: nowrap;
-}
-
-.bar-section input,
-.bar-section select {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--rounded);
-  font-size: var(--text-sm);
-  min-width: 80px;
-  background: var(--bg-secondary);
-  transition: var(--transition);
-}
-
-.bar-section input[type="number"] {
-  width: 70px;
-}
-
-.bar-section input:focus,
-.bar-section select:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.1);
-}
 
 /* Responsive design */
 @media (max-width: 1024px) {
@@ -260,21 +195,6 @@
   .nav-label {
     font-size: 0.6875rem;
   }
-  
-  .bar-section {
-    gap: 1rem;
-  }
-  
-  .bar-section label {
-    font-size: var(--text-xs);
-  }
-  
-  .bar-section input,
-  .bar-section select {
-    font-size: var(--text-xs);
-    padding: 0.375rem 0.5rem;
-    min-width: 60px;
-  }
 }
 
 @media (max-width: 640px) {
@@ -297,18 +217,6 @@
   .nav-label {
     font-size: 0.625rem;
   }
-  
-  .bar-section {
-    gap: 0.75rem;
-    justify-content: space-between;
-  }
-  
-  .bar-section label {
-    flex-direction: column;
-    gap: 0.375rem;
-    text-align: center;
-    font-size: 0.625rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -323,13 +231,5 @@
   
   .nav-label {
     display: none;
-  }
-  
-  .sticky-bars {
-    font-size: var(--text-xs);
-  }
-  
-  .bar-section label {
-    gap: 0.25rem;
   }
 }
