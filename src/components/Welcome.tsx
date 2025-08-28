@@ -134,7 +134,6 @@ const Welcome = () => {
           display: flex;
           flex-direction: column;
           overflow: hidden;
-          padding-top: var(--header-height);
         }
 
         .welcome-hero {

@@ -2,7 +2,6 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: var(--container-padding);
-  padding-top: calc(var(--header-height) + 1rem);
 }
 
 .editor-header {

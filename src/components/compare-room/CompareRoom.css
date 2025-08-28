@@ -2,7 +2,6 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: var(--container-padding);
-  padding-top: calc(var(--header-height) + 1rem);
   display: flex;
   flex-direction: column;
   gap: 2rem;

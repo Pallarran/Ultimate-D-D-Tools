@@ -37,7 +37,6 @@ const ComingSoon = ({ title, description, features, icon = "🚧" }: ComingSoonP
           justify-content: center;
           min-height: 60vh;
           padding: 2rem;
-          padding-top: calc(var(--header-height) + 2rem);
         }
 
         .coming-soon-content {
