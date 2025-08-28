@@ -4,15 +4,12 @@ import { useScenarioStore } from '../../stores/scenarioStore';
 import DPRChart from './DPRChart';
 import ThreeRoundDPR from './ThreeRoundDPR';
 import TTKAnalysis from './TTKAnalysis';
-import ExplanationDrawer from './ExplanationDrawer';
 import './CombatLab.css';
 
 const CombatLab = () => {
   const { currentBuild, builds } = useBuildStore();
   const { scenario, updateScenario } = useScenarioStore();
   const [selectedBuildId, setSelectedBuildId] = useState<string>('');
-  const [activeTab, setActiveTab] = useState<'dpr' | 'chart' | 'ttk'>('dpr');
-  const [showExplanation, setShowExplanation] = useState(false);
 
   // Use current build from editor or first available build
   const activeBuild = currentBuild || (builds.length > 0 ? builds[0] : null);
@@ -48,56 +45,9 @@ const CombatLab = () => {
   return (
     <div className="combat-lab">
       <div className="combat-lab-content">
-        <div className="combat-header">
-          <div className="build-selector">
-            <label htmlFor="build-select">Analyzing Build:</label>
-            <select
-              id="build-select"
-              value={selectedBuildId}
-              onChange={(e) => handleBuildChange(e.target.value)}
-              className="build-select"
-            >
-              {builds.map((build) => (
-                <option key={build.id} value={build.id}>
-                  {build.name} (Level {build.level} {build.class})
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="analysis-tabs">
-            <button
-              className={`tab-button ${activeTab === 'dpr' ? 'active' : ''}`}
-              onClick={() => setActiveTab('dpr')}
-            >
-              3-Round DPR
-            </button>
-            <button
-              className={`tab-button ${activeTab === 'chart' ? 'active' : ''}`}
-              onClick={() => setActiveTab('chart')}
-            >
-              DPR vs AC
-            </button>
-            <button
-              className={`tab-button ${activeTab === 'ttk' ? 'active' : ''}`}
-              onClick={() => setActiveTab('ttk')}
-            >
-              Time to Kill
-            </button>
-          </div>
-
-          <button
-            className={`explanation-toggle ${showExplanation ? 'active' : ''}`}
-            onClick={() => setShowExplanation(!showExplanation)}
-            title="Show/Hide Explanations"
-          >
-            🔍 Explain
-          </button>
-        </div>
-
         <div className="scenario-configuration">
           <div className="config-section">
-            <h3>Scenario Settings</h3>
+            <h3>🎯 Combat Scenario</h3>
             <div className="config-group">
               <label>
                 <span>Target AC:</span>
@@ -116,7 +66,7 @@ const CombatLab = () => {
               </label>
               
               <label>
-                <span>Advantage:</span>
+                <span>Roll Type:</span>
                 <select
                   value={scenario.advantage}
                   onChange={(e) =>
@@ -142,18 +92,13 @@ const CombatLab = () => {
                   className="config-select"
                 >
                   <option value="0">None</option>
-                  <option value="2">Half Cover (+2 AC)</option>
-                  <option value="5">Three-Quarters (+5 AC)</option>
+                  <option value="2">Half (+2 AC)</option>
+                  <option value="5">3/4 Cover (+5 AC)</option>
                 </select>
               </label>
-            </div>
-          </div>
 
-          <div className="config-section">
-            <h3>Combat Policies</h3>
-            <div className="config-group">
               <label>
-                <span>SS/GWM:</span>
+                <span>SS/GWM Policy:</span>
                 <select
                   value={scenario.policies.ss}
                   onChange={(e) =>
@@ -166,86 +111,62 @@ const CombatLab = () => {
                   }
                   className="config-select"
                 >
-                  <option value="auto">Auto</option>
+                  <option value="auto">Auto-Optimize</option>
                   <option value="always">Always On</option>
-                  <option value="off">Off</option>
+                  <option value="off">Always Off</option>
                 </select>
               </label>
+            </div>
+          </div>
 
+          <div className="config-section">
+            <h3>📊 Analyzing Build</h3>
+            <div className="config-group">
               <label>
-                <span>Action Surge Round:</span>
-                <input
-                  type="number"
-                  value={scenario.policies.actionSurgeRound}
-                  onChange={(e) =>
-                    updateScenario({
-                      policies: {
-                        ...scenario.policies,
-                        actionSurgeRound: parseInt(e.target.value) || 1,
-                      },
-                    })
-                  }
-                  min="1"
-                  max="3"
-                  className="config-input"
-                />
-              </label>
-
-              <label>
-                <span>Smite Policy:</span>
+                <span>Character Build:</span>
                 <select
-                  value={scenario.policies.smite}
-                  onChange={(e) =>
-                    updateScenario({
-                      policies: {
-                        ...scenario.policies,
-                        smite: e.target.value as 'never' | 'firstHit' | 'critOnly' | 'threshold',
-                      },
-                    })
-                  }
-                  className="config-select"
+                  value={selectedBuildId}
+                  onChange={(e) => handleBuildChange(e.target.value)}
+                  className="build-select"
                 >
-                  <option value="never">Never</option>
-                  <option value="firstHit">First Hit</option>
-                  <option value="critOnly">Crit Only</option>
-                  <option value="threshold">Threshold</option>
+                  {builds.map((build) => (
+                    <option key={build.id} value={build.id}>
+                      {build.name} (L{build.level} {build.class})
+                    </option>
+                  ))}
                 </select>
               </label>
             </div>
           </div>
         </div>
 
-        <div className="analysis-content">
-          {activeTab === 'dpr' && (
-            <ThreeRoundDPR 
-              build={selectedBuild} 
-              scenario={scenario}
-            />
-          )}
-          
-          {activeTab === 'chart' && (
-            <DPRChart 
-              build={selectedBuild}
-              scenario={scenario}
-            />
-          )}
-          
-          {activeTab === 'ttk' && (
-            <TTKAnalysis 
-              build={selectedBuild}
-              scenario={scenario}
-            />
-          )}
+        <div className="analysis-results">
+          <div className="results-grid">
+            <div className="result-section">
+              <h3>⚡ 3-Round DPR</h3>
+              <ThreeRoundDPR 
+                build={selectedBuild} 
+                scenario={scenario} 
+              />
+            </div>
+            
+            <div className="result-section">
+              <h3>📈 DPR vs AC Chart</h3>
+              <DPRChart 
+                build={selectedBuild} 
+                scenario={scenario} 
+              />
+            </div>
+            
+            <div className="result-section">
+              <h3>⏱️ Time to Kill</h3>
+              <TTKAnalysis 
+                build={selectedBuild} 
+                scenario={scenario} 
+              />
+            </div>
+          </div>
         </div>
-
-        {showExplanation && (
-          <ExplanationDrawer
-            activeTab={activeTab}
-            build={selectedBuild}
-            scenario={scenario}
-            onClose={() => setShowExplanation(false)}
-          />
-        )}
       </div>
     </div>
   );

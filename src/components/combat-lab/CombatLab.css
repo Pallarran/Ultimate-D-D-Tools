@@ -197,7 +197,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.375rem;
-  min-width: 120px;
+  min-width: 140px;
   flex: 1;
 }
 
@@ -208,7 +208,8 @@
 }
 
 .config-input,
-.config-select {
+.config-select,
+.build-select {
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--border-color);
   border-radius: var(--rounded);
@@ -219,7 +220,8 @@
 }
 
 .config-input:focus,
-.config-select:focus {
+.config-select:focus,
+.build-select:focus {
   outline: none;
   border-color: var(--accent-color);
   box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.1);
@@ -229,37 +231,55 @@
   width: 80px;
 }
 
-.analysis-content {
+.build-select {
+  min-width: 250px;
+}
+
+.analysis-results {
   flex: 1;
-  min-height: 600px;
-  display: flex;
-  flex-direction: column;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.results-grid .result-section:last-child {
+  grid-column: 1 / -1;
+}
+
+.result-section {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: var(--rounded-xl);
-  overflow: hidden;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.result-section h3 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-light);
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .combat-header {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: stretch;
-  }
-
-  .analysis-tabs {
-    justify-content: stretch;
-  }
-
-  .tab-button {
-    flex: 1;
-    text-align: center;
-  }
-
   .scenario-configuration {
     flex-direction: column;
     gap: 1.5rem;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .results-grid .result-section:last-child {
+    grid-column: 1;
   }
 }
 
@@ -268,10 +288,6 @@
     padding: 1rem;
   }
 
-  .combat-header {
-    gap: 0.75rem;
-    padding: 1rem;
-  }
 
   .scenario-configuration {
     padding: 1rem;
@@ -287,37 +303,15 @@
     flex: none;
   }
 
-  .build-selector {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
 
   .build-select {
     min-width: auto;
   }
 
-  .analysis-tabs {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .tab-button {
-    padding: 0.625rem 1rem;
-  }
 }
 
 @media (max-width: 640px) {
   .message-content {
     padding: 2rem 1rem;
-  }
-
-  .combat-header {
-    padding: 0.75rem;
-  }
-
-  .explanation-toggle {
-    padding: 0.5rem 0.75rem;
-    font-size: var(--text-xs);
   }
 }
