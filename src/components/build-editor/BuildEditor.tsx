@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useBuildStore } from '../../stores/buildStore';
 import { createNewBuild } from '../../stores/buildStore';
+import { validateBuild, getValidationSummary } from '../../utils/buildValidation';
 import BasicInfoForm from './BasicInfoForm';
 import AbilitiesForm from './AbilitiesForm';
 import FeatsForm from './FeatsForm';
 import AttackProfilesForm from './AttackProfilesForm';
+import ValidationPanel from './ValidationPanel';
 import './BuildEditor.css';
 
 const BuildEditor = () => {
@@ -22,6 +24,11 @@ const BuildEditor = () => {
   
   const [activeTab, setActiveTab] = useState('basic');
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+
+  // Validate build in real-time
+  const validation = useMemo(() => {
+    return currentBuild ? validateBuild(currentBuild) : { isValid: true, errors: [], warnings: [] };
+  }, [currentBuild]);
 
   useEffect(() => {
     if (id) {
@@ -83,7 +90,14 @@ const BuildEditor = () => {
           {hasUnsavedChanges && (
             <span className="unsaved-indicator">● Unsaved changes</span>
           )}
-          <button onClick={handleSave} className="save-button">
+          <div className="validation-status">
+            {getValidationSummary(validation)}
+          </div>
+          <button 
+            onClick={handleSave} 
+            className={`save-button ${!validation.isValid ? 'has-errors' : ''}`}
+            disabled={!validation.isValid}
+          >
             {id ? 'Update Build' : 'Save Build'}
           </button>
         </div>
@@ -100,6 +114,10 @@ const BuildEditor = () => {
             <span className="tab-label">{tab.label}</span>
           </button>
         ))}
+      </div>
+
+      <div className="validation-container">
+        <ValidationPanel validation={validation} />
       </div>
 
       <div className="editor-content">

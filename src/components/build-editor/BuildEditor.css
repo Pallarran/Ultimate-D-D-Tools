@@ -1,6 +1,7 @@
 .build-editor {
   max-width: 1000px;
   margin: 0 auto;
+  padding: var(--container-padding);
 }
 
 .editor-header {
@@ -50,6 +51,12 @@
   animation: pulse 2s infinite;
 }
 
+.validation-status {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -64,9 +71,24 @@
   box-shadow: var(--shadow-md);
 }
 
-.save-button:hover {
+.save-button:hover:not(:disabled) {
   background: color-mix(in srgb, var(--success-color) 85%, black);
   box-shadow: var(--shadow-lg);
+}
+
+.save-button:disabled,
+.save-button.has-errors {
+  background: var(--text-tertiary);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.save-button:disabled:hover,
+.save-button.has-errors:hover {
+  background: var(--text-tertiary);
+  transform: none;
+  box-shadow: none;
 }
 
 .editor-tabs {
@@ -331,6 +353,12 @@
   .section-title {
     font-size: var(--text-lg);
   }
+}
+
+/* Validation Container */
+.validation-container {
+  margin: 1rem 0;
+  padding: 0;
 }
 
 @media (max-width: 480px) {
