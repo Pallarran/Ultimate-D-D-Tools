@@ -2,7 +2,7 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: var(--container-padding);
-  padding-top: calc(var(--container-padding) + 1rem);
+  padding-top: calc(var(--header-height) + 1rem);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -300,6 +300,7 @@
 @media (max-width: 768px) {
   .combat-lab {
     padding: 1rem;
+    padding-top: calc(var(--header-height) + 1rem);
   }
 
 
