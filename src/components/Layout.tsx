@@ -45,6 +45,7 @@ const Layout = ({ children }: LayoutProps) => {
       </header>
 
       <main className="app-main">
+        <div className="header-spacer"></div>
         <div className="main-content">
           {children}
         </div>
