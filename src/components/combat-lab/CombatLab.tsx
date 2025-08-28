@@ -144,26 +144,32 @@ const CombatLab = () => {
           <div className="results-grid">
             <div className="result-section">
               <h3>⚡ 3-Round DPR</h3>
-              <ThreeRoundDPR 
-                build={selectedBuild} 
-                scenario={scenario} 
-              />
+              <div className="result-content">
+                <ThreeRoundDPR 
+                  build={selectedBuild} 
+                  scenario={scenario} 
+                />
+              </div>
             </div>
             
             <div className="result-section">
               <h3>📈 DPR vs AC Chart</h3>
-              <DPRChart 
-                build={selectedBuild} 
-                scenario={scenario} 
-              />
+              <div className="result-content">
+                <DPRChart 
+                  build={selectedBuild} 
+                  scenario={scenario} 
+                />
+              </div>
             </div>
             
             <div className="result-section">
               <h3>⏱️ Time to Kill</h3>
-              <TTKAnalysis 
-                build={selectedBuild} 
-                scenario={scenario} 
-              />
+              <div className="result-content">
+                <TTKAnalysis 
+                  build={selectedBuild} 
+                  scenario={scenario} 
+                />
+              </div>
             </div>
           </div>
         </div>

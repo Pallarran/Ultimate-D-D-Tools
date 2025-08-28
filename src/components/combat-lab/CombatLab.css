@@ -1,11 +1,11 @@
 .combat-lab {
   max-width: 1400px;
   margin: 0 auto;
-  padding: var(--container-padding);
+  padding: 1rem var(--container-padding) var(--container-padding);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--header-height));
 }
 
 .combat-lab-content {
@@ -172,6 +172,8 @@
   border-radius: var(--rounded-xl);
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 100;
 }
 
 .config-section {
@@ -255,6 +257,10 @@
   border-radius: var(--rounded-xl);
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
 }
 
 .result-section h3 {
@@ -264,6 +270,14 @@
   margin: 0 0 1rem 0;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.result-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Responsive Design */
@@ -285,7 +299,8 @@
 
 @media (max-width: 768px) {
   .combat-lab {
-    padding: 1rem;
+    padding: 1rem 1rem var(--container-padding);
+    min-height: calc(100vh - var(--header-height));
   }
 
 
