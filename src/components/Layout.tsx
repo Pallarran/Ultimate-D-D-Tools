@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import './Layout.css';
 
@@ -8,6 +9,22 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
+  const [headerHeight, setHeaderHeight] = useState(80);
+
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      const headerElement = document.querySelector('.app-header') as HTMLElement;
+      if (headerElement) {
+        setHeaderHeight(headerElement.offsetHeight);
+      }
+    };
+
+    // Update on mount and resize
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
+    
+    return () => window.removeEventListener('resize', updateHeaderHeight);
+  }, []);
 
   const navigationItems = [
     { path: '/library', label: 'Library', icon: '📚' },
@@ -45,7 +62,7 @@ const Layout = ({ children }: LayoutProps) => {
       </header>
 
       <main className="app-main">
-        <div className="header-spacer"></div>
+        <div className="header-spacer" style={{height: `${headerHeight}px`}}></div>
         <div className="main-content">
           {children}
         </div>
