@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useBuildStore } from '../../stores/buildStore';
 import { useScenarioStore } from '../../stores/scenarioStore';
-import StickyBars from '../ui/StickyBars';
 import DPRChart from './DPRChart';
 import ThreeRoundDPR from './ThreeRoundDPR';
 import TTKAnalysis from './TTKAnalysis';
@@ -48,8 +47,6 @@ const CombatLab = () => {
 
   return (
     <div className="combat-lab">
-      <StickyBars />
-      
       <div className="combat-lab-content">
         <div className="combat-header">
           <div className="build-selector">
