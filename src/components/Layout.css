@@ -14,8 +14,9 @@
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 1000;
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .header-content {
@@ -125,7 +126,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - var(--header-height));
 }
 
 .main-content {
@@ -135,6 +135,7 @@
   flex: 1;
   position: relative;
   z-index: 10;
+  min-height: calc(100vh - var(--header-height));
 }
 
 
@@ -151,11 +152,16 @@
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-height: 140px;
+  }
+
   .header-content {
     flex-direction: column;
     gap: 1rem;
     height: auto;
     padding: 1rem var(--container-padding);
+    min-height: var(--header-height);
   }
   
   .app-title {
@@ -183,6 +189,10 @@
 }
 
 @media (max-width: 640px) {
+  :root {
+    --header-height: 160px;
+  }
+
   .main-nav {
     overflow-x: scroll;
     justify-content: flex-start;
