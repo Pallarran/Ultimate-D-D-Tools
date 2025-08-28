@@ -203,13 +203,9 @@ function validateClassFeatures(build: Build, errors: ValidationError[], warnings
   const { class: className, level, features } = build;
 
   // Extra Attack validation
-  const shouldHaveExtraAttack = (
-    ['Fighter', 'Paladin', 'Ranger', 'Barbarian'].includes(className) && level >= 5
-  ) || (className === 'Fighter' && level >= 11);
-
   const expectedExtraAttacks = className === 'Fighter' ? 
     Math.min(3, Math.floor((level - 1) / 4)) : 
-    (level >= 5 ? 1 : 0);
+    (['Fighter', 'Paladin', 'Ranger', 'Barbarian'].includes(className) && level >= 5 ? 1 : 0);
 
   if (features.extraAttack !== expectedExtraAttacks) {
     warnings.push({

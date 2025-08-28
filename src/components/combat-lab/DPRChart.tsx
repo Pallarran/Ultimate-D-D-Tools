@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { 
-  LineChart, 
   Line, 
   XAxis, 
   YAxis, 
@@ -9,7 +8,6 @@ import {
   Legend,
   ReferenceLine,
   ResponsiveContainer,
-  Area,
   ComposedChart
 } from 'recharts';
 import type { Build, Scenario } from '../../types';

@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useBuildStore } from '../../stores/buildStore';
 import { useScenarioStore } from '../../stores/scenarioStore';
-import { calculateThreeRoundDPR, calculateDPRvsAC } from '../../math/combat';
+import { calculateThreeRoundDPR } from '../../math/combat';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
 import type { Build } from '../../types';
 import './CompareRoom.css';
@@ -277,7 +277,7 @@ const CompareRoom = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {selectedBuildData.map((build, index) => {
+                    {selectedBuildData.map((build) => {
                       const dprData = dprComparison.find(d => d.buildName === build.name);
                       return (
                         <tr key={build.id}>
