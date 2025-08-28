@@ -49,14 +49,6 @@ const Layout = ({ children }: LayoutProps) => {
           {children}
         </div>
       </main>
-
-      <footer className="app-footer">
-        <div className="footer-content">
-          <p>
-            Ultimate D&D Tools - D&D 5e Character Optimization Lab
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };

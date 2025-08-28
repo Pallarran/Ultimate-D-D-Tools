@@ -114,10 +114,11 @@ const Welcome = () => {
 
       <style>{`
         .welcome-container {
-          height: calc(100vh - var(--header-height));
+          height: 100vh;
           display: flex;
           flex-direction: column;
           overflow: hidden;
+          padding-top: var(--header-height);
         }
 
         .welcome-hero {
@@ -125,15 +126,16 @@ const Welcome = () => {
             var(--bg-primary) 0%, 
             var(--bg-secondary) 50%, 
             var(--bg-tertiary) 100%);
-          padding: 2rem 2rem 1.5rem 2rem;
+          padding: 1.5rem;
           text-align: center;
           border-bottom: 1px solid var(--border-light);
           flex-shrink: 0;
         }
 
         .hero-content {
-          max-width: 800px;
+          max-width: 100%;
           margin: 0 auto;
+          padding: 0 2rem;
         }
 
         .hero-title {
@@ -192,9 +194,7 @@ const Welcome = () => {
 
         .welcome-features {
           flex: 1;
-          padding: 1.5rem 2rem;
-          max-width: 1200px;
-          margin: 0 auto;
+          padding: 1.5rem;
           display: flex;
           flex-direction: column;
           overflow: hidden;
@@ -221,11 +221,11 @@ const Welcome = () => {
 
         .features-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          grid-template-columns: repeat(3, 1fr);
           gap: 1rem;
           flex: 1;
           overflow-y: auto;
-          padding-right: 0.5rem;
+          padding: 0 1rem;
         }
 
         .feature-card {
@@ -299,7 +299,7 @@ const Welcome = () => {
 
         .welcome-cta {
           background: var(--bg-tertiary);
-          padding: 1.5rem 2rem;
+          padding: 1rem 1.5rem;
           text-align: center;
           border-top: 1px solid var(--border-light);
           flex-shrink: 0;
@@ -343,9 +343,19 @@ const Welcome = () => {
           font-size: 1rem;
         }
 
+        @media (max-width: 1200px) {
+          .features-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
         @media (max-width: 768px) {
           .welcome-hero {
-            padding: 1.5rem 1rem 1rem 1rem;
+            padding: 1rem;
+          }
+
+          .hero-content {
+            padding: 0 1rem;
           }
 
           .title-main {
@@ -367,6 +377,7 @@ const Welcome = () => {
           .features-grid {
             grid-template-columns: 1fr;
             gap: 0.75rem;
+            padding: 0;
           }
 
           .welcome-cta {

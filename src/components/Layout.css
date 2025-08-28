@@ -129,29 +129,14 @@
 }
 
 .main-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--section-spacing) var(--container-padding);
+  margin: 0;
+  padding: 0;
   width: 100%;
   flex: 1;
   position: relative;
   z-index: 10;
 }
 
-.app-footer {
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border-color);
-  padding: 2rem var(--container-padding);
-  margin-top: auto;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: var(--text-sm);
-}
 
 
 /* Responsive design */
