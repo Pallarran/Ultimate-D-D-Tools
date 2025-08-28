@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 const Welcome = () => {
   const features = [
     {
+      title: "Build Library",
+      icon: "📚",
+      description: "Organize and manage your D&D character builds with search, filtering, and export capabilities.",
+      path: "/library",
+      status: "available"
+    },
+    {
       title: "Build Editor",
       icon: "⚔️",
       description: "Create and optimize D&D 5e characters with point-buy calculator, feat selection, and attack profiles.",
@@ -12,16 +19,16 @@ const Welcome = () => {
     {
       title: "Combat Lab",
       icon: "⚡",
-      description: "Analyze DPR, run combat simulations, and optimize for different scenarios with detailed charts.",
+      description: "Analyze DPR, time-to-kill, and combat performance with detailed charts and explanations.",
       path: "/combat",
-      status: "coming-soon"
+      status: "available"
     },
     {
       title: "Compare Room",
       icon: "📊",
-      description: "Compare up to 3 builds side-by-side with comprehensive analysis across all metrics.",
+      description: "Compare up to 3 builds side-by-side with DPR analysis, level curves, and comprehensive metrics.",
       path: "/compare",
-      status: "coming-soon"
+      status: "available"
     },
     {
       title: "Pillar Scorecards",
@@ -43,6 +50,13 @@ const Welcome = () => {
       description: "Optimize party composition and plan adventuring days with resource management.",
       path: "/party",
       status: "coming-soon"
+    },
+    {
+      title: "Optimize & Analyze",
+      icon: "🔬",
+      description: "Advanced optimization algorithms and statistical analysis for character builds.",
+      path: "/optimizer",
+      status: "coming-soon"
     }
   ];
 
@@ -60,11 +74,11 @@ const Welcome = () => {
           </p>
           <div className="hero-stats">
             <div className="stat">
-              <span className="stat-number">1</span>
-              <span className="stat-label">Tool Available</span>
+              <span className="stat-number">4</span>
+              <span className="stat-label">Tools Available</span>
             </div>
             <div className="stat">
-              <span className="stat-number">5</span>
+              <span className="stat-number">4</span>
               <span className="stat-label">Coming Soon</span>
             </div>
             <div className="stat">
@@ -85,16 +99,18 @@ const Welcome = () => {
           {features.map((feature) => (
             <div key={feature.path} className={`feature-card ${feature.status}`}>
               <Link to={feature.path} className="feature-link">
-                <div className="feature-icon">{feature.icon}</div>
-                <div className="feature-content">
-                  <h3 className="feature-title">{feature.title}</h3>
-                  <p className="feature-description">{feature.description}</p>
-                  <div className="feature-status">
-                    {feature.status === 'available' ? (
-                      <span className="status-badge available">Available Now</span>
-                    ) : (
-                      <span className="status-badge coming-soon">Coming Soon</span>
-                    )}
+                <div className="feature-layout">
+                  <div className="feature-icon">{feature.icon}</div>
+                  <div className="feature-content">
+                    <h3 className="feature-title">{feature.title}</h3>
+                    <p className="feature-description">{feature.description}</p>
+                    <div className="feature-status">
+                      {feature.status === 'available' ? (
+                        <span className="status-badge available">Available Now</span>
+                      ) : (
+                        <span className="status-badge coming-soon">Coming Soon</span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -221,7 +237,7 @@ const Welcome = () => {
 
         .features-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(4, 1fr);
           gap: 1rem;
           flex: 1;
           overflow-y: auto;
@@ -252,11 +268,27 @@ const Welcome = () => {
           padding: 1.25rem;
           text-decoration: none;
           color: inherit;
+          height: 100%;
+        }
+
+        .feature-layout {
+          display: flex;
+          gap: 1rem;
+          height: 100%;
+          align-items: flex-start;
         }
 
         .feature-icon {
-          font-size: 2rem;
-          margin-bottom: 0.75rem;
+          font-size: 2.5rem;
+          flex-shrink: 0;
+          margin-top: 0.25rem;
+        }
+
+        .feature-content {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          min-height: 0;
         }
 
         .feature-title {
@@ -271,10 +303,12 @@ const Welcome = () => {
           color: var(--text-secondary);
           line-height: 1.4;
           margin: 0 0 1rem 0;
+          flex: 1;
         }
 
         .feature-status {
           margin-top: auto;
+          align-self: flex-start;
         }
 
         .status-badge {
@@ -344,6 +378,12 @@ const Welcome = () => {
         }
 
         @media (max-width: 1200px) {
+          .features-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        @media (max-width: 900px) {
           .features-grid {
             grid-template-columns: repeat(2, 1fr);
           }
