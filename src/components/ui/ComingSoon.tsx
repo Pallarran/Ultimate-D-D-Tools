@@ -35,16 +35,19 @@ const ComingSoon = ({ title, description, features, icon = "🚧" }: ComingSoonP
           display: flex;
           align-items: center;
           justify-content: center;
-          min-height: 60vh;
-          padding: 2rem;
+          width: 1200px;
+          height: calc(100vh - 80px);
+          padding: 32px;
+          margin: 0;
         }
 
         .coming-soon-content {
           text-align: center;
-          max-width: 600px;
+          width: 600px;
+          height: 400px;
           background: var(--bg-secondary);
-          padding: 3rem 2rem;
-          border-radius: var(--rounded-2xl);
+          padding: 48px 32px;
+          border-radius: 16px;
           box-shadow: var(--shadow-lg);
           border: 1px solid var(--border-color);
         }

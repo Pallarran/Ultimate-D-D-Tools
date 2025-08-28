@@ -1,11 +1,11 @@
 .compare-room {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: var(--container-padding);
+  width: 1136px;
+  margin: 0;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  min-height: 100vh;
+  gap: 32px;
+  min-height: calc(100vh - 80px);
 }
 
 /* Empty State */

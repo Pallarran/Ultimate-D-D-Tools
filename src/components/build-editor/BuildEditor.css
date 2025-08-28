@@ -1,7 +1,8 @@
 .build-editor {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: var(--container-padding);
+  width: 1136px;
+  margin: 0;
+  padding: 32px;
+  min-height: calc(100vh - 80px);
 }
 
 .editor-header {

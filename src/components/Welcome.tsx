@@ -130,10 +130,13 @@ const Welcome = () => {
 
       <style>{`
         .welcome-container {
-          height: 100vh;
+          width: 1200px;
+          height: calc(100vh - 80px);
           display: flex;
           flex-direction: column;
           overflow: hidden;
+          margin: 0;
+          padding: 0;
         }
 
         .welcome-hero {
@@ -141,16 +144,18 @@ const Welcome = () => {
             var(--bg-primary) 0%, 
             var(--bg-secondary) 50%, 
             var(--bg-tertiary) 100%);
-          padding: 1.5rem;
+          padding: 24px;
           text-align: center;
           border-bottom: 1px solid var(--border-light);
+          height: 200px;
           flex-shrink: 0;
         }
 
         .hero-content {
-          max-width: 100%;
+          width: 1136px;
           margin: 0 auto;
-          padding: 0 2rem;
+          padding: 0;
+          height: 152px;
         }
 
         .hero-title {
@@ -208,8 +213,8 @@ const Welcome = () => {
         }
 
         .welcome-features {
-          flex: 1;
-          padding: 1.5rem;
+          height: calc(100vh - 80px - 200px - 80px);
+          padding: 24px;
           display: flex;
           flex-direction: column;
           overflow: hidden;
@@ -236,11 +241,11 @@ const Welcome = () => {
 
         .features-grid {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 1rem;
-          flex: 1;
+          grid-template-columns: 284px 284px 284px 284px;
+          gap: 16px;
+          height: calc(100vh - 80px - 200px - 80px - 100px);
           overflow-y: auto;
-          padding: 0 1rem;
+          padding: 0 16px;
         }
 
         .feature-card {
@@ -332,9 +337,10 @@ const Welcome = () => {
 
         .welcome-cta {
           background: var(--bg-tertiary);
-          padding: 1rem 1.5rem;
+          padding: 16px 24px;
           text-align: center;
           border-top: 1px solid var(--border-light);
+          height: 80px;
           flex-shrink: 0;
         }
 
