@@ -297,12 +297,12 @@ const DPRChart = ({ build, scenario }: DPRChartProps) => {
         }
 
         .chart-container {
-          flex: 1;
-          min-height: 400px;
+          width: 100%;
+          height: 100%;
           background: var(--bg-secondary);
           border: 1px solid var(--border-color);
-          border-radius: var(--rounded-lg);
-          padding: 1rem;
+          border-radius: 8px;
+          padding: 16px;
         }
 
         .chart-tooltip {
@@ -399,27 +399,6 @@ const DPRChart = ({ build, scenario }: DPRChartProps) => {
           color: var(--warning-color);
         }
 
-        @media (max-width: 1024px) {
-          .chart-header {
-            flex-direction: column;
-            gap: 1rem;
-          }
-
-          .toggle-windows-info {
-            min-width: auto;
-            width: 100%;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .chart-container {
-            min-height: 300px;
-          }
-
-          .insight-cards {
-            grid-template-columns: 1fr;
-          }
-        }
       `}</style>
     </div>
   );

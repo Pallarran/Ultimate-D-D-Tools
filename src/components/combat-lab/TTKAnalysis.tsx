@@ -285,12 +285,12 @@ const TTKAnalysis = ({ build, scenario }: TTKAnalysisProps) => {
         }
 
         .ttk-chart {
-          flex: 1;
-          min-height: 300px;
+          width: 100%;
+          height: 100%;
           background: var(--bg-secondary);
           border: 1px solid var(--border-color);
-          border-radius: var(--rounded-lg);
-          padding: 1rem;
+          border-radius: 8px;
+          padding: 16px;
         }
 
         .ttk-tooltip {
@@ -437,36 +437,6 @@ const TTKAnalysis = ({ build, scenario }: TTKAnalysisProps) => {
           background: var(--bg-hover);
         }
 
-        @media (max-width: 1024px) {
-          .ttk-header {
-            flex-direction: column;
-            gap: 1rem;
-          }
-
-          .ttk-summary {
-            width: 100%;
-            justify-content: center;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .ttk-chart {
-            min-height: 250px;
-          }
-
-          .insight-cards {
-            grid-template-columns: 1fr;
-          }
-
-          .ttk-data-table {
-            font-size: var(--text-xs);
-          }
-
-          .ttk-data-table th,
-          .ttk-data-table td {
-            padding: 0.5rem;
-          }
-        }
       `}</style>
     </div>
   );

@@ -185,10 +185,10 @@ const ThreeRoundDPR = ({ build, scenario }: ThreeRoundDPRProps) => {
         }
 
         .dpr-breakdown {
-          flex: 1;
+          width: 100%;
+          height: 100%;
           display: flex;
           flex-direction: column;
-          min-height: 0;
         }
 
         .dpr-breakdown h3 {
@@ -201,9 +201,10 @@ const ThreeRoundDPR = ({ build, scenario }: ThreeRoundDPRProps) => {
         .breakdown-table {
           background: var(--bg-secondary);
           border: 1px solid var(--border-color);
-          border-radius: var(--rounded-lg);
+          border-radius: 8px;
           overflow: hidden;
-          flex: 1;
+          width: 100%;
+          height: 100%;
           display: flex;
           flex-direction: column;
         }
@@ -305,50 +306,6 @@ const ThreeRoundDPR = ({ build, scenario }: ThreeRoundDPRProps) => {
           text-transform: capitalize;
         }
 
-        @media (max-width: 768px) {
-          .summary-cards {
-            grid-template-columns: repeat(2, 1fr);
-          }
-
-          .table-header,
-          .table-row {
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 0.5rem;
-            padding: 0.75rem;
-          }
-
-          .table-row .rider-usage {
-            display: none;
-          }
-
-          .table-header .header-cell:last-child {
-            display: none;
-          }
-
-          .scenario-details {
-            grid-template-columns: 1fr;
-            gap: 0.5rem;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .summary-cards {
-            grid-template-columns: 1fr;
-          }
-
-          .table-header,
-          .table-row {
-            grid-template-columns: 1fr 1fr;
-          }
-
-          .table-row .crit-rate {
-            display: none;
-          }
-
-          .table-header .header-cell:nth-child(3) {
-            display: none;
-          }
-        }
       `}</style>
     </div>
   );
