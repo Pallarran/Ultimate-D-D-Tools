@@ -234,7 +234,8 @@ const DPRChart = ({ build, scenario }: DPRChartProps) => {
           display: flex;
           flex-direction: column;
           height: 100%;
-          gap: 1.5rem;
+          gap: 16px;
+          padding: 4px;
         }
 
         .dpr-chart-empty {
@@ -298,11 +299,24 @@ const DPRChart = ({ build, scenario }: DPRChartProps) => {
 
         .chart-container {
           width: 100%;
-          height: 100%;
-          background: var(--bg-secondary);
-          border: 1px solid var(--border-color);
-          border-radius: 8px;
-          padding: 16px;
+          flex: 1;
+          background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+          border: 2px solid var(--border-color);
+          border-radius: 16px;
+          padding: 20px;
+          box-shadow: var(--shadow-sm);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .chart-container::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
         }
 
         .chart-tooltip {

@@ -121,10 +121,10 @@ const ThreeRoundDPR = ({ build, scenario }: ThreeRoundDPRProps) => {
         .three-round-dpr {
           display: flex;
           flex-direction: column;
-          gap: 2rem;
+          gap: 20px;
           height: 100%;
           overflow-y: auto;
-          padding: 0.5rem;
+          padding: 8px;
         }
 
         .dpr-summary {
@@ -133,19 +133,31 @@ const ThreeRoundDPR = ({ build, scenario }: ThreeRoundDPRProps) => {
 
         .summary-cards {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 1rem;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
         }
 
         .summary-card {
-          background: var(--bg-secondary);
-          border: 1px solid var(--border-color);
-          border-radius: var(--rounded-xl);
-          padding: 1.5rem;
+          background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+          border: 2px solid var(--border-color);
+          border-radius: 16px;
+          padding: 16px;
           display: flex;
           align-items: center;
-          gap: 1rem;
-          transition: var(--transition);
+          gap: 12px;
+          transition: all 0.2s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .summary-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
         }
 
         .summary-card:hover {
@@ -199,23 +211,24 @@ const ThreeRoundDPR = ({ build, scenario }: ThreeRoundDPRProps) => {
         }
 
         .breakdown-table {
-          background: var(--bg-secondary);
-          border: 1px solid var(--border-color);
-          border-radius: 8px;
+          background: var(--bg-primary);
+          border: 2px solid var(--border-color);
+          border-radius: 16px;
           overflow: hidden;
           width: 100%;
-          height: 100%;
+          flex: 1;
           display: flex;
           flex-direction: column;
+          box-shadow: var(--shadow-sm);
         }
 
         .table-header {
           display: grid;
           grid-template-columns: 2fr 1fr 1fr 1fr;
           gap: 1rem;
-          padding: 1rem;
-          background: var(--bg-tertiary);
-          border-bottom: 1px solid var(--border-color);
+          padding: 16px 20px;
+          background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+          border-bottom: 2px solid var(--border-color);
         }
 
         .header-cell {
